@@ -1,0 +1,38 @@
+{
+  "name": "dynamic-config",
+  "version": "0.0.1",
+  "description": "loads configuration-files depending on env or args ",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/peerigon/dynamic-config.git"
+  },
+  "main": "lib/index.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "minimist": "~0.0.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "config",
+    "env",
+    "args"
+  ],
+  "author": {
+    "name": "peerigon",
+    "email": "developers@peerigon.com"
+  },
+  "license": "MIT",
+  "readme": "dynamic-config\n==============\n\nRead config depending on env or argv\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/peerigon/dynamic-config/issues"
+  },
+  "homepage": "https://github.com/peerigon/dynamic-config",
+  "_id": "dynamic-config@0.0.1",
+  "_from": "dynamic-config@"
+}
