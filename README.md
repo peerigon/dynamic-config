@@ -2,7 +2,7 @@
 
 Read config depending on env or argv.
 
-## Example__
+## Example
 
 ```javascript
 //config/index.js
