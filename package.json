@@ -1,6 +1,6 @@
 {
   "name": "dynamic-config",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "loads configuration-files depending on env or args ",
   "repository": {
     "type": "git",
@@ -11,7 +11,8 @@
     "example": "example"
   },
   "dependencies": {
-    "minimist": "~0.0.8"
+    "alamid-plugin": "0.x",
+    "minimist": "1.x"
   },
   "devDependencies": {},
   "scripts": {
