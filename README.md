@@ -13,7 +13,12 @@ var dynamicConfig = require("dynamic-config");
 loadConfig.options.defaultEnv = "develop";
 loadConfig.options.log = true;
 
-module.exports = dynamicConfig(__dirname, "config.js");
+var config = dynamicConfig(__dirname, "config.js");
+
+//Path to the last loaded config file (e.g. /etc/myapp/develop/config.js)
+console.log(dynamicConfig.last);
+
+module.exports = config;
 ```
 
 ```javascript
