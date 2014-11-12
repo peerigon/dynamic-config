@@ -10,8 +10,8 @@ Read config depending on env or argv.
 var dynamicConfig = require("dynamic-config");
 
 //optional options
-loadConfig.options.defaultEnv = "develop";
-loadConfig.options.log = true;
+dynamicConfig.options.defaultEnv = "develop";
+dynamicConfig.options.log = true;
 
 var config = dynamicConfig(__dirname, "config.js");
 
