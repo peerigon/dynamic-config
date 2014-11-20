@@ -30,22 +30,22 @@ console.log(config);
 
 __Default__
 
-`node app.js`
+```javascript 
+node app.js
 
-`{ whereami: 'develop' }`
+{ whereami: 'develop' }
 
-__Argv__
+# Set environment via args
+node app.js --env prod
 
-`node app.js --env prod`
-
-`{ whereami: 'prod' }`
+returns { whereami: 'prod' }
 
 
-__Env__
+//Set environment via env
+export env=stage; node app.js
+{ whereami: 'stage' }
+```
 
-`env=stage; node app.js`
-
-`{ whereami: 'stage' }`
 
 ## Plugins
 
@@ -66,27 +66,26 @@ dynamicConfig.use(require("dynamic-config/plugins/extend/argv"));
 module.exports = dynamicConfig(__dirname, "config.js");
 ```
 
-`node app.js`
+```javascript
+node app.js
 
-`{ name: 'superApp', port: 9000 }`
+{ name: 'superApp', port: 9000 }
 
-__overwrite via argv__
+# Overwrite via argv
+node app.js --port 80 //or node app.js --port=80
 
-`node app.js --port 80` or `node app.js --port=80`
+{ name: 'superApp', port: 80 }
 
-`{ name: 'superApp', port: 80 }`
+# Overwrite via env
+export port=90 node app.js
 
-__overwrite via env__
+{ name: 'superApp', port: 90 }
 
-`export port=90 node app.js`
+# Order matters
+export port=90; node app.js --port 80
 
-`{ name: 'superApp', port: 90 }`
-
-__The order matters..__
-
-`export port=90; node app.js --port 80`
-
-`{ name: 'superApp', port: 80 }`
+{ name: 'superApp', port: 80 }
+```
 
 
 
