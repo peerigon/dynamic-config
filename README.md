@@ -35,14 +35,15 @@ node app.js
 
 { whereami: 'develop' }
 
-# Set environment via args
+//# Set environment via args
 node app.js --env prod
 
 returns { whereami: 'prod' }
 
 
-//Set environment via env
+//# Set environment via env
 export env=stage; node app.js
+
 { whereami: 'stage' }
 ```
 
@@ -57,10 +58,10 @@ export env=stage; node app.js
 
 var dynamicConfig = require("dynamic-config");
 
-//extend from env
+//# extend from env
 dynamicConfig.use(require("dynamic-config/plugins/extend/env"));
 
-//extend from argv
+//# extend from argv
 dynamicConfig.use(require("dynamic-config/plugins/extend/argv"));
 
 module.exports = dynamicConfig(__dirname, "config.js");
@@ -71,17 +72,17 @@ node app.js
 
 { name: 'superApp', port: 9000 }
 
-# Overwrite via argv
+//# Overwrite via argv
 node app.js --port 80 //or node app.js --port=80
 
 { name: 'superApp', port: 80 }
 
-# Overwrite via env
+//# Overwrite via env
 export port=90 node app.js
 
 { name: 'superApp', port: 90 }
 
-# Order matters
+//# Order matters...
 export port=90; node app.js --port 80
 
 { name: 'superApp', port: 80 }
