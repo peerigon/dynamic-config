@@ -1,6 +1,25 @@
 # dynamic-config
 
-Read config depending on env or argv.
+Read config files depending on your environment. 
+
+- load different configurations depending on your _env_ 
+  - via argv: `node app.js --env production`
+  - via env: `export ENV=production; node app.js` 
+- expects a JavaScript file as config (so you can add dynamic content) 
+
+## Options 
+
+## defaultEnv: String, (default: develop)
+
+Define which env should be set as default. 
+
+## log: Boolean (default: false) 
+
+Enable logging of path/env resolution. 
+
+## customEnv: String, optional 
+
+The argument we expect is called `env` by default, but you can customize it here. 
 
 ## Example
 
@@ -21,14 +40,20 @@ console.log(dynamicConfig.resolvedConfigPath);
 module.exports = config;
 ```
 
+```javascript 
+//config/develop/config.js
+
+module.exports = {
+  whereami: "develop"
+}
+```
+
 ```javascript
 //app.js
 var config = require("./config");
 
 console.log(config);
 ```
-
-__Default__
 
 ```javascript 
 node app.js
@@ -46,6 +71,9 @@ export env=stage; node app.js
 
 { whereami: 'stage' }
 ```
+
+
+
 
 
 ## Plugins
