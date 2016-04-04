@@ -17,9 +17,9 @@ Define which env should be set as default.
 
 Enable logging of path/env resolution. 
 
-## customEnv: String, optional 
+## envName: String (default: env) 
 
-The argument we expect is called `env` by default, but you can customize it here. 
+The argument/env variable name we expect. 
 
 ## Example
 
