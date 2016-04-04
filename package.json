@@ -14,9 +14,12 @@
     "alamid-plugin": "0.x",
     "minimist": "1.x"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "ava": "^0.13.0",
+    "chai": "^3.5.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "keywords": [
     "config",
@@ -28,7 +31,7 @@
     "email": "developers@peerigon.com"
   },
   "license": "MIT",
-  "readme": "dynamic-config\n==============\n\nRead config depending on env or argv\n",
+  "readme": "dynamic-config\n Read configs depending on env or argv",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/peerigon/dynamic-config/issues"
