@@ -4,7 +4,7 @@ Read config files depending on your environment.
 
 - load different configurations depending on your _env_ 
   - via argv: `node app.js --env production`
-  - via env: `export ENV=production; node app.js` 
+  - via env: `export NODE_ENV=production; node app.js`
 - expects a JavaScript file as config (so you can add dynamic content) 
 
 ## Options 
