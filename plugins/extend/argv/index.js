@@ -22,7 +22,7 @@ function argvPlugin(dynamicConfig, options) {
         console.warn("Passing options as separate arguments to a dynamic-config plugin is deprecated. Use an options object instead. This will be removed in the next major version.");
         separator = arguments[1];
         whitelist = arguments[2];
-    } else {
+    } else if (arguments.length > 1) {
         separator = options.separator;
         whitelist = options.whitelist;
     }
