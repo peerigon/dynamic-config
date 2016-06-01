@@ -10,10 +10,14 @@
   },
   "devDependencies": {
     "ava": "^0.15.1",
-    "chai": "^3.5.0"
+    "chai": "^3.5.0",
+    "eslint": "^2.11.1",
+    "eslint-config-peerigon": "^4.0.0"
   },
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "posttest": "npm run lint",
+    "lint": "eslint --fix lib plugins test"
   },
   "keywords": [
     "config",

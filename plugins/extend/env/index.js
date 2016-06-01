@@ -1,19 +1,22 @@
 "use strict";
 
-var plugin = require("alamid-plugin"),
-    merge = require("../merge.js");
+var plugin = require("alamid-plugin");
+var merge = require("../merge.js");
 
 /**
- * merge from env into config
- * @type {Function|*|exports}
+ * Merge from env into config.
+ *
+ * @param {Function} dynamicConfig
+ * @param {string} separator
+ * @param {string} whitelist
+ * @this pluginContext
  */
-var envPlugin = plugin(function (obj, separator, whitelist) {
-
+function envPlugin(dynamicConfig, separator, whitelist) {
     var self = this;
 
-    this(obj).after("loadConfig", function (result) {
+    this(dynamicConfig).after("loadConfig", function (result) {
         self.override.result = merge(result, process.env, separator, whitelist);
     });
-});
+}
 
-module.exports = envPlugin;
+module.exports = plugin(envPlugin);

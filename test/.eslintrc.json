@@ -1,0 +1,11 @@
+{
+    "extends": [
+        "peerigon/base",
+        "peerigon/tests"
+    ],
+    "env": {
+        "node": true,
+        "mocha": true
+    },
+    "root": true
+}
