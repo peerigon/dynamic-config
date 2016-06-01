@@ -19,8 +19,8 @@ function filePlugin(dynamicConfig, options) {
 
     if (typeof options === "string") {
         console.warn("Passing options as separate arguments to a dynamic-config plugin is deprecated. Use an options object instead. This will be removed in the next major version.");
-        suffix = options;
-    } else if (arguments.length > 1) {
+        suffix = arguments[1];
+    } else if (options && typeof options === "object") {
         suffix = options.suffix;
     }
 
