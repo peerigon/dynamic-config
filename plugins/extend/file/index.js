@@ -6,25 +6,24 @@ var plugin = require("alamid-plugin"),
     deepAssign = require("deep-assign");
 
 /**
- * merge from overwrite file into config
+ * merge from config extension file into the original config
  * @type {Function|*|exports}
  */
 var filePlugin = plugin(function (obj, suffix) {
     var self = this;
 
-    // This default means, that the overwrite config file for config.js has to be named config.local.js
+    // This default means, that the config extension file for config.js has to be named config.local.js
     suffix = suffix || ".local";
 
     this(obj).after("loadConfig", function (result, args) {
-        var filePath = args[0];
-        var overrideFilePath = path.join(
-            path.dirname(filePath),
-            path.basename(filePath, path.extname(filePath)) + suffix + path.extname(filePath)
-        );
+        var configPath = args[0],
+            configDir = path.dirname(configPath),
+            configExtension = path.extname(configPath),
+            configName = path.basename(configPath, configExtension),
+            configExtensionPath = path.join(configDir, configName + suffix + configExtension);
 
-        if (fs.existsSync(overrideFilePath)) {
-            var overrideConfig = require(overrideFilePath);
-            self.override.result = deepAssign(result, overrideConfig);
+        if (fs.existsSync(configExtensionPath)) {
+            self.override.result = deepAssign(result, require(configExtensionPath));
         }
     });
 });
