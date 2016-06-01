@@ -2,21 +2,14 @@
   "name": "dynamic-config",
   "version": "0.2.0",
   "description": "loads configuration-files depending on env or args ",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/peerigon/dynamic-config.git"
-  },
   "main": "lib/index.js",
-  "directories": {
-    "example": "example"
-  },
   "dependencies": {
-    "alamid-plugin": "0.x",
+    "alamid-plugin": "^0.1.0",
     "deep-assign": "^2.0.0",
-    "minimist": "1.x"
+    "minimist": "^1.2.0"
   },
   "devDependencies": {
-    "ava": "^0.13.0",
+    "ava": "^0.15.1",
     "chai": "^3.5.0"
   },
   "scripts": {
@@ -32,12 +25,11 @@
     "email": "developers@peerigon.com"
   },
   "license": "MIT",
-  "readme": "dynamic-config\n Read configs depending on env or argv",
-  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/peerigon/dynamic-config.git"
+  },
   "bugs": {
     "url": "https://github.com/peerigon/dynamic-config/issues"
-  },
-  "homepage": "https://github.com/peerigon/dynamic-config",
-  "_id": "dynamic-config@0.0.1",
-  "_from": "dynamic-config@"
+  }
 }
