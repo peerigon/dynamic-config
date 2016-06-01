@@ -119,12 +119,11 @@ export port=90; node app.js --port 80
 { name: 'superApp', port: 80 }
 ```
 
-#### Overwrite via file
+#### Extend via file
 Create a file named the same as your config, but contains `.local` in front of the extension.
 Example: `config.js` -> `config.local.js`
 
-In the overwrite file you can define any subset of the object, that is defined in the main config and it would overwrite
-the corresponding value.
+In the config extension file you can define any subset of the object, that is defined in the main config and it would overwrite the corresponding value.
 
 ```javascript
 //# config.js
