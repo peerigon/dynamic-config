@@ -1,47 +1,53 @@
 # dynamic-config
 
-Read config files depending on your environment. 
+Loads configuration files depending on:
 
-- load different configurations depending on your _env_ 
-  - via argv: `node app.js --env production`
-  - via env: `export NODE_ENV=production; node app.js`
-- expects a JavaScript file as config (so you can add dynamic content) 
+  - argv: `node app.js --env production`
+  - env: `export NODE_ENV=production; node app.js`
 
-## Options 
+Expects a `.js` file as config so you can add dynamic content.
 
-## defaultEnv: String, (default: develop)
+## Installation
 
-Define which env should be set as default. 
+```
+npm install dynamic-config
+```
 
-## log: Boolean (default: false) 
+## Options
 
-Enable logging of path/env resolution. 
+### defaultEnv: String, (default: develop)
 
-## envName: String (default: env) 
+Define which env should be set as default.
 
-The argument/env variable name we expect. 
+### log: Boolean (default: false)
+
+Enable logging of path/env resolution.
+
+### envName: String (default: env)
+
+The argument/env variable name we expect.
 
 ## Example
 
 ```javascript
-//config/index.js
+// config/index.js
 
 var dynamicConfig = require("dynamic-config");
 
-//optional options
+// Optional options
 dynamicConfig.options.defaultEnv = "develop";
 dynamicConfig.options.log = true;
 
 var config = dynamicConfig(__dirname, "config.js");
 
-//log the resolved config path (e.g. /etc/myapp/develop/config.js)
+// Log the resolved config path (e.g. /etc/myapp/develop/config.js)
 console.log(dynamicConfig.resolvedConfigPath);
 
 module.exports = config;
 ```
 
-```javascript 
-//config/develop/config.js
+```javascript
+// config/develop/config.js
 
 module.exports = {
   whereami: "develop"
@@ -49,24 +55,23 @@ module.exports = {
 ```
 
 ```javascript
-//app.js
+// app.js
 var config = require("./config");
 
 console.log(config);
 ```
 
-```javascript 
+```javascript
 node app.js
 
 { whereami: 'develop' }
 
-//# Set environment via args
+// Set environment via args
 node app.js --env prod
 
-returns { whereami: 'prod' }
+{ whereami: 'prod' }
 
-
-//# Set environment via env
+// Set environment via env
 export env=stage; node app.js
 
 { whereami: 'stage' }
@@ -78,21 +83,20 @@ export env=stage; node app.js
 
 ## Plugins
 
-### extend()
+### extend
+
+These plugins allow you to override specific config fields by applying them via env, argv or a separate local config file.
 
 ```javascript
-
-"use strict";
-
 var dynamicConfig = require("dynamic-config");
 
-//# extend from env
+// extend from env
 dynamicConfig.use(require("dynamic-config/plugins/extend/env"));
 
-//# extend from argv
+// extend from argv
 dynamicConfig.use(require("dynamic-config/plugins/extend/argv"));
 
-//# extend from file
+// extend from file
 dynamicConfig.use(require("dynamic-config/plugins/extend/file"));
 
 module.exports = dynamicConfig(__dirname, "config.js");
@@ -103,30 +107,29 @@ node app.js
 
 { name: 'superApp', port: 9000 }
 
-//# Overwrite via argv
+// Overwrite via argv
 node app.js --port 80 //or node app.js --port=80
 
 { name: 'superApp', port: 80 }
 
-//# Overwrite via env
+// Overwrite via env
 export port=90 node app.js
 
 { name: 'superApp', port: 90 }
 
-//# Order matters...
+// Order matters...
 export port=90; node app.js --port 80
 
 { name: 'superApp', port: 80 }
 ```
 
 #### Extend via file
-Create a file named the same as your config, but contains `.local` in front of the extension.
-Example: `config.js` -> `config.local.js`
+Create a file named the same as your config, but contains `.local` in front of the extension, like `config.js` becomes `config.local.js`.
 
-In the config extension file you can define any subset of the object, that is defined in the main config and it would overwrite the corresponding value.
+In the config extension file you can define any subset of the object, that is defined in the main config and it would overwrite the corresponding value. Both configs are merged via [deep-assign](https://github.com/sindresorhus/deep-assign).
 
 ```javascript
-//# config.js
+// config.js
 module.exports = {
     a: 1,
     b: {
@@ -136,7 +139,7 @@ module.exports = {
     e: 3
 }
 
-//# config.local.js
+// config.local.js
 module.exports = {
     e: "e",
     b: {
@@ -144,7 +147,7 @@ module.exports = {
     }
 }
 
-//# result
+// result
 {
     a: 1,
     b: {

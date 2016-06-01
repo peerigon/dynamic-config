@@ -1,7 +1,7 @@
 {
   "name": "dynamic-config",
   "version": "0.2.0",
-  "description": "loads configuration-files depending on env or args ",
+  "description": "Loads configuration files depending on the given env",
   "main": "lib/index.js",
   "dependencies": {
     "alamid-plugin": "^0.1.0",
