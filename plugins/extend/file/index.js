@@ -9,11 +9,20 @@ var deepAssign = require("deep-assign");
  * Merge from env into config.
  *
  * @param {Function} dynamicConfig
- * @param {string} suffix
+ * @param {Object} [options]
+ * @param {string} [options.suffix=".local"]
  * @this pluginContext
  */
-function filePlugin(dynamicConfig, suffix) {
+function filePlugin(dynamicConfig, options) {
     var self = this;
+    var suffix;
+
+    if (typeof options === "string") {
+        console.warn("Passing options as separate arguments to a dynamic-config plugin is deprecated. Use an options object instead. This will be removed in the next major version.");
+        suffix = options;
+    } else {
+        suffix = options.suffix;
+    }
 
     // This default means, that the config extension file for config.js has to be named config.local.js
     suffix = suffix || ".local";

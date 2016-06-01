@@ -31,8 +31,8 @@ function applyKey(config, keyPath, value) {
  *
  * @param {Object} config
  * @param {Object} extension
- * @param {string} [separator]
- * @param {Array} [whitelist]
+ * @param {string} [separator=":"]
+ * @param {Array} [whitelist=[]]
  * @returns {Object}
  */
 function merge(config, extension, separator, whitelist) {
