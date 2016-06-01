@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "alamid-plugin": "0.x",
+    "deep-assign": "^2.0.0",
     "minimist": "1.x"
   },
   "devDependencies": {

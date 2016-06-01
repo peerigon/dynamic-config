@@ -92,6 +92,9 @@ dynamicConfig.use(require("dynamic-config/plugins/extend/env"));
 //# extend from argv
 dynamicConfig.use(require("dynamic-config/plugins/extend/argv"));
 
+//# extend from file
+dynamicConfig.use(require("dynamic-config/plugins/extend/file"));
+
 module.exports = dynamicConfig(__dirname, "config.js");
 ```
 
@@ -116,16 +119,39 @@ export port=90; node app.js --port 80
 { name: 'superApp', port: 80 }
 ```
 
+#### Overwrite via file
+Create a file named the same as your config, but contains `.local` in front of the extension.
+Example: `config.js` -> `config.local.js`
 
+In the overwrite file you can define any subset of the object, that is defined in the main config and it would overwrite
+the corresponding value.
 
+```javascript
+//# config.js
+module.exports = {
+    a: 1,
+    b: {
+        c: "c",
+        d: 2
+    },
+    e: 3
+}
 
+//# config.local.js
+module.exports = {
+    e: "e",
+    b: {
+        d: "d"
+    }
+}
 
-
-
-
-
-
-
-
-
-
+//# result
+{
+    a: 1,
+    b: {
+        c: "c",
+        d: "d"
+    },
+    e: "e"
+}
+```
