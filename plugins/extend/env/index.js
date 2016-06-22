@@ -26,7 +26,7 @@ function envPlugin(dynamicConfig, options) {
         whitelist = options.whitelist;
     }
 
-    this(dynamicConfig).after("loadConfig", function (result) {
+    this(dynamicConfig).after("loadConfigFile", function (result) {
         self.override.result = merge(result, process.env, separator, whitelist);
     });
 }

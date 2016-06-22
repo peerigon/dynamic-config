@@ -32,13 +32,13 @@ The argument/env variable name we expect.
 ```javascript
 // config/index.js
 
-var dynamicConfig = require("dynamic-config");
+var dynamicConfig = new (require("dynamic-config"))({
+    // Optional options
+    defaultEnv: "develop",
+    log: true
+});
 
-// Optional options
-dynamicConfig.options.defaultEnv = "develop";
-dynamicConfig.options.log = true;
-
-var config = dynamicConfig(__dirname, "config.js");
+var config = dynamicConfig.load(__dirname, "config.js");
 
 // Log the resolved config path (e.g. /etc/myapp/develop/config.js)
 console.log(dynamicConfig.resolvedConfigPath);
@@ -88,7 +88,7 @@ export env=stage; node app.js
 These plugins allow you to override specific config fields by applying them via env, argv or a separate local config file.
 
 ```javascript
-var dynamicConfig = require("dynamic-config");
+var dynamicConfig = new (require("dynamic-config"))();
 
 // extend from env
 dynamicConfig.use(require("dynamic-config/plugins/extend/env"));
@@ -99,7 +99,7 @@ dynamicConfig.use(require("dynamic-config/plugins/extend/argv"));
 // extend from file
 dynamicConfig.use(require("dynamic-config/plugins/extend/file"));
 
-module.exports = dynamicConfig(__dirname, "config.js");
+module.exports = dynamicConfig.load(__dirname, "config.js");
 ```
 
 ```javascript
