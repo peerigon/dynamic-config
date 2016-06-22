@@ -93,14 +93,16 @@ var dynamicConfig = require("dynamic-config");
 // extend from env
 dynamicConfig.use(require("dynamic-config/plugins/extend/env"));
 
-// extend from argv
-dynamicConfig.use(require("dynamic-config/plugins/extend/argv"));
-
 // extend from file
 dynamicConfig.use(require("dynamic-config/plugins/extend/file"));
 
+// extend from argv
+dynamicConfig.use(require("dynamic-config/plugins/extend/argv"));
+
 module.exports = dynamicConfig(__dirname, "config.js");
 ```
+
+**Hint:** The order in which the plugins are loaded is important. In the above code snippet config fields defined via arguments would override their counterparts from an override file, which itself overrides fields from environment variables. This is probably a suitable order for most projects.
 
 ```javascript
 node app.js
