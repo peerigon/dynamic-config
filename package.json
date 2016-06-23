@@ -12,7 +12,8 @@
     "ava": "^0.15.1",
     "chai": "^3.5.0",
     "eslint": "^2.11.1",
-    "eslint-config-peerigon": "^4.0.0",
+    "eslint-config-peerigon": "^5.0.0",
+    "eslint-plugin-jsdoc": "^2.3.1",
     "nyc": "^6.6.1"
   },
   "scripts": {
