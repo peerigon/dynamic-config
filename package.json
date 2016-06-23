@@ -1,6 +1,6 @@
 {
   "name": "dynamic-config",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "description": "Loads configuration files depending on the given env",
   "main": "lib/index.js",
   "dependencies": {
