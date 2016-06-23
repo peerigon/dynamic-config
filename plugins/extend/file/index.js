@@ -27,7 +27,7 @@ function filePlugin(dynamicConfig, options) {
     // This default means, that the config extension file for config.js has to be named config.local.js
     suffix = suffix || ".local";
 
-    this(dynamicConfig).after("loadConfig", function (result, args) {
+    this(dynamicConfig).after("loadConfigFile", function (result, args) {
         var configPath = args[0];
         var configDir = path.dirname(configPath);
         var configExtension = path.extname(configPath);

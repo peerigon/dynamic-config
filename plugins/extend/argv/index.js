@@ -27,7 +27,7 @@ function argvPlugin(dynamicConfig, options) {
         whitelist = options.whitelist;
     }
 
-    this(dynamicConfig).after("loadConfig", function (result) {
+    this(dynamicConfig).after("loadConfigFile", function (result) {
         self.override.result = merge(result, minimist(process.argv.slice(2)), separator, whitelist);
     });
 }
