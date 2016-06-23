@@ -12,12 +12,14 @@
     "ava": "^0.15.1",
     "chai": "^3.5.0",
     "eslint": "^2.11.1",
-    "eslint-config-peerigon": "^4.0.0"
+    "eslint-config-peerigon": "^4.0.0",
+    "nyc": "^6.6.1"
   },
   "scripts": {
-    "test": "ava",
+    "test": "nyc ava",
     "posttest": "npm run lint",
-    "lint": "eslint --fix lib plugins test"
+    "lint": "eslint --fix lib plugins test",
+    "coverage-report": "nyc report --reporter=html"
   },
   "keywords": [
     "config",
