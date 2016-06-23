@@ -37,3 +37,16 @@ test("should accept a custom env name via options.envName", () => {
 
     expect(config()).to.eql(b);
 });
+
+test("should preserve stack traces", () => {
+    let err;
+
+    dynamicConfig.options.defaultEnv = "withError";
+    try {
+        config();
+    } catch (e) {
+        err = e;
+    }
+    expect(err.stack).to.contain("Cannot find module './does-not-exist'");
+    expect(err.stack).to.contain("fixtures/configs/withError/config.js:1:1");
+});

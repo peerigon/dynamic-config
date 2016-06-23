@@ -1,0 +1,1 @@
+require("./otherFile.js");
