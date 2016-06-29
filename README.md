@@ -27,9 +27,9 @@ npm install dynamic-config --save
 
 Define which env should be set as default.
 
-### log: boolean = *false*
+### log: Function
 
-Enable logging of path/env resolution.
+Calls this function to log information about the path/env resolution.
 
 ### envName: string = *"env"*
 
@@ -43,7 +43,7 @@ The argument/env variable name we expect.
 const DynamicConfig = require("dynamic-config");
 const dynamicConfig = new DynamicConfig({
     defaultEnv: "develop",
-    log: true
+    log: console.log
 });
 
 module.exports = dynamicConfig.load(__dirname, "config.js");
