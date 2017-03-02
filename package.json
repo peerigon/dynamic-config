@@ -9,12 +9,12 @@
     "minimist": "^1.2.0"
   },
   "devDependencies": {
-    "ava": "^0.15.1",
+    "ava": "^0.18.2",
     "chai": "^3.5.0",
-    "eslint": "^2.11.1",
-    "eslint-config-peerigon": "^5.0.0",
+    "eslint": "^3.16.1",
+    "eslint-config-peerigon": "^9.0.0",
     "eslint-plugin-jsdoc": "^2.3.1",
-    "nyc": "^6.6.1"
+    "nyc": "^10.1.2"
   },
   "scripts": {
     "test": "nyc ava",
