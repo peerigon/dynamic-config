@@ -7,6 +7,7 @@ dynamic-config
 [![Dependency Status](https://david-dm.org/peerigon/dynamic-config.svg)](https://david-dm.org/peerigon/dynamic-config)
 [![Build Status](https://travis-ci.org/peerigon/dynamic-config.svg?branch=master)](https://travis-ci.org/peerigon/dynamic-config)
 [![Coverage Status](https://img.shields.io/coveralls/peerigon/dynamic-config.svg)](https://coveralls.io/r/peerigon/dynamic-config?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/npm/dynamic-config/badge.svg)](https://snyk.io/test/npm/dynamic-config)
 
 Loads configuration files depending on:
 
